@@ -1,4 +1,4 @@
-import {createContext, useEffect, useState} from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
@@ -6,15 +6,10 @@ const AppContext = createContext({
     searchResults: []
 });
 
-
 export const AppProvider = ({ children }) => {
-
     const [searchResults, setSearchResults] = useState([]);
-
-
     const [searchTerm, setSearchTerm] = useState("");
 
-    console.log(searchTerm)
     const fetchData = async (searchTerm) => {
         const options = {
             method: "GET",
@@ -23,12 +18,12 @@ export const AppProvider = ({ children }) => {
                 term: searchTerm,
                 locale: "en-US",
                 offset: "0",
-                limit: "5",
+                limit: "15"
             },
             headers: {
                 "X-RapidAPI-Key": import.meta.env.VITE_RAPID_KEY,
-                "X-RapidAPI-Host": import.meta.env.VITE_RAPID_HOST,
-            },
+                "X-RapidAPI-Host": import.meta.env.VITE_RAPID_HOST
+            }
         };
 
         try {
@@ -40,16 +35,19 @@ export const AppProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchData(searchTerm);
+        const delay = 500;
+        const timer = setTimeout(() => {
+            fetchData(searchTerm);
+        }, delay);
+
+        return () => clearTimeout(timer);
     }, [searchTerm]);
 
     const contextValues = {
-       searchResults,
+        searchResults,
         searchTerm,
         setSearchTerm
     };
-
-
 
     return (
         <AppContext.Provider value={contextValues}>
