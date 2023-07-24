@@ -12,7 +12,7 @@ const Results = () => {
             <Row>
                 {artists.map((artist) => (
                     artist.artist.avatar ? (
-                        <Col key={artist.artist.adminid} className='mb-5 col-lg-4 col-md-8 col-12'>
+                        <Col key={artist.artist.adamid} className='mb-5 col-lg-4 col-md-8 col-12'>
                             <Card style={{ width: "18rem" }}>
                                 <Card.Img variant="top" src={artist.artist.avatar} />
                                 <Card.Body>
@@ -20,7 +20,7 @@ const Results = () => {
                                     <Card.Text>
                                         {/* Additional artist information if needed */}
                                     </Card.Text>
-                                    <Button variant="primary" href={artist.artist.weburl} target="_blank">
+                                    <Button variant="primary" href={`/profile/${artist.artist.adamid}`} target="_blank">
                                         Go to Profile
                                     </Button>
                                 </Card.Body>
