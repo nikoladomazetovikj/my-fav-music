@@ -1,15 +1,23 @@
 import Header from "../components/Layout/Header.jsx";
 import {useContext} from "react";
 import AppContext from "../context/AppContext.jsx";
+import NoResults from "../components/Home/NoResults.jsx";
+import Search from "../components/Home/Search.jsx";
+import Main from "../components/Home/Main.jsx";
 
 const Home = () => {
 
     const {searchResults} = useContext(AppContext);
 
-    console.log(searchResults)
     return (
         <>
             <Header/>
+            <Main>
+                <Search/>
+                {searchResults.length === 0 ? (
+                    <NoResults/>
+                ) : null}
+            </Main>
         </>
     );
 }
