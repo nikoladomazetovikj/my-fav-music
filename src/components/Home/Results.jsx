@@ -20,7 +20,7 @@ const Results = () => {
                                     <Card.Text>
                                         {/* Additional artist information if needed */}
                                     </Card.Text>
-                                    <Button variant="primary" href={`/profile/${artist.artist.adamid}`} target="_blank">
+                                    <Button variant="primary" href={`/profile/${artist.artist.adamid}`} >
                                         Go to Profile
                                     </Button>
                                 </Card.Body>

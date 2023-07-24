@@ -1,15 +1,51 @@
-import {createContext} from "react";
+import {createContext, useEffect, useState} from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 
 const ProfileContext = createContext({
-    profileDetails: []
+    profileDetails: [],
+    id: null,
 });
 
 export const ProfileProvider = ({children}) => {
 
+    const [profileDetails, setProfileDetails] = useState([]);
+    const [id, setId] = useState(null);
 
-    const contextValues = {};
+    const fetchProfileDetails = async (id) => {
+        const options = {
+            method: "GET",
+            url: `${import.meta.env.VITE_API_BASE_URL}/artists/get-details`,
+            params: {
+                id: id,
+                l: 'en-US'
+            },
+            headers: {
+                "X-RapidAPI-Key": import.meta.env.VITE_RAPID_KEY,
+                "X-RapidAPI-Host": import.meta.env.VITE_RAPID_HOST
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            setProfileDetails(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
+    useEffect(() => {
+        if (id) {
+            fetchProfileDetails(id);
+        }
+    }, [id]);
+
+    const contextValues = {
+        profileDetails,
+        id,setId
+    };
 
 
     return <ProfileContext.Provider value={contextValues}>
