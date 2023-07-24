@@ -8,17 +8,14 @@ const AppContext = createContext({
 // eslint-disable-next-line react/prop-types
 export const AppProvider = ({ children }) => {
 
-    console.log('in')
-
     const [searchResults, setSearchResults] = useState([]);
-
 
 
     useEffect(() => {
         const fetchData = async () => {
             const options = {
                 method: 'GET',
-                url: `${process.env.REACT_APP_BASE_URL}/search`,
+                url: `${import.meta.env.VITE_API_BASE_URL}/search`,
                 params: {
                     term: 'maks korzh',
                     locale: 'en-US',
@@ -26,8 +23,8 @@ export const AppProvider = ({ children }) => {
                     limit: '5',
                 },
                 headers: {
-                    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_KEY,
-                    'X-RapidAPI-Host': process.env.REACT_APP_RAPID_HOST,
+                    'X-RapidAPI-Key': import.meta.env.VITE_RAPID_KEY,
+                    'X-RapidAPI-Host': import.meta.env.VITE_RAPID_HOST,
                 },
             };
 
