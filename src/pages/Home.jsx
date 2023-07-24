@@ -4,6 +4,7 @@ import AppContext from "../context/AppContext.jsx";
 import NoResults from "../components/Home/NoResults.jsx";
 import Search from "../components/Home/Search.jsx";
 import Main from "../components/Home/Main.jsx";
+import Results from "../components/Home/Results.jsx";
 
 const Home = () => {
 
@@ -16,7 +17,7 @@ const Home = () => {
                 <Search/>
                 {searchResults.length === 0 ? (
                     <NoResults/>
-                ) : null}
+                ) : <Results/>}
             </Main>
         </>
     );
