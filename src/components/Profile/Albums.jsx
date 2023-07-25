@@ -11,14 +11,15 @@ const Albums = ({ albums }) => {
     return (
         <>
             {albums.map((album) => (
-
                 <Card key={album.releases.items[0].id} className='m-3 text-bg-dark text-white' style={{width: '15rem'}}>
-                    <Card.Img variant="top" src={album.releases.items[0].coverArt.sources[0].url} />
-                    <Card.Body>
-                        <Card.Text>
-                            {album.releases.items[0].name}
-                        </Card.Text>
-                    </Card.Body>
+                  <a href={album.releases.items[0].sharingInfo.shareUrl} target='_blank' className='text-decoration-none' rel='noreferrer'>
+                      <Card.Img variant="top" src={album.releases.items[0].coverArt.sources[0].url} />
+                      <Card.Body>
+                          <Card.Text>
+                              {album.releases.items[0].name}
+                          </Card.Text>
+                      </Card.Body>
+                  </a>
                 </Card>
             ))}
         </>

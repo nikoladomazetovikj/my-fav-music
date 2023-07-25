@@ -10,10 +10,12 @@ const MostPopular = ({ popular }) => {
         <>
             {popular.map((song) => (
                 <Card key={song.releases.items[0].id} style={{ width: '15rem' }} className='m-3'>
-                    <ListGroup variant="flush">
-                        <ListGroup.Item>{song.releases.items[0].name}</ListGroup.Item>
-                        {/*<Button variant="primary">Go somewhere</Button>*/}
-                    </ListGroup>
+                   <a href={song.releases.items[0].sharingInfo.shareUrl} target='_blank' className='text-decoration-none' rel='noreferrer'>
+                       <ListGroup variant="flush">
+                           <ListGroup.Item>{song.releases.items[0].name}</ListGroup.Item>
+                           {/*<Button variant="primary">Go somewhere</Button>*/}
+                       </ListGroup>
+                   </a>
                 </Card>
 
             ))}

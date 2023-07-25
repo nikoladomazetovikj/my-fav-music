@@ -9,6 +9,7 @@ const ArtistTracks = ({artistTracks}) => {
     const albums = artistTracks.albums.items
     const mostPopular = artistTracks.popularReleases.items;
 
+    console.log(mostPopular)
     return (
         <Container>
             <Row>
