@@ -12,11 +12,13 @@ const Albums = ({ albums }) => {
         <>
             {albums.map((album) => (
 
-                <Card key={album.releases.items[0].id} className='m-3 bg-dark text-white' style={{width: '15rem'}}>
+                <Card key={album.releases.items[0].id} className='m-3 text-bg-dark text-white' style={{width: '15rem'}}>
                     <Card.Img variant="top" src={album.releases.items[0].coverArt.sources[0].url} />
-                    <Card.ImgOverlay>
-                        <Card.Title>{album.releases.items[0].name}</Card.Title>
-                    </Card.ImgOverlay>
+                    <Card.Body>
+                        <Card.Text>
+                            {album.releases.items[0].name}
+                        </Card.Text>
+                    </Card.Body>
                 </Card>
             ))}
         </>
