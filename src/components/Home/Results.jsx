@@ -7,7 +7,6 @@ const Results = () => {
 
     const artists = searchResults?.artists?.items || [];
 
-    console.log(artists);
     return (
         <Container>
             <Row>
