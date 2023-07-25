@@ -13,12 +13,13 @@ export const AppProvider = ({ children }) => {
     const fetchData = async (searchTerm) => {
         const options = {
             method: "GET",
-            url: `${import.meta.env.VITE_API_BASE_URL}/search`,
+            url: `${import.meta.env.VITE_API_BASE_URL}/search/`,
             params: {
-                term: searchTerm,
-                locale: "en-US",
-                offset: "0",
-                limit: "15"
+                q: searchTerm,
+                type: 'multi',
+                offset: '0',
+                limit: '10',
+                numberOfTopResults: '15'
             },
             headers: {
                 "X-RapidAPI-Key": import.meta.env.VITE_RAPID_KEY,

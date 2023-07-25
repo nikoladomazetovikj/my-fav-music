@@ -16,10 +16,9 @@ export const ProfileProvider = ({children}) => {
     const fetchProfileDetails = async (id) => {
         const options = {
             method: "GET",
-            url: `${import.meta.env.VITE_API_BASE_URL}/artists/get-details`,
+            url: `${import.meta.env.VITE_API_BASE_URL}/artist_overview/`,
             params: {
                 id: id,
-                l: 'en-US'
             },
             headers: {
                 "X-RapidAPI-Key": import.meta.env.VITE_RAPID_KEY,

@@ -2,16 +2,14 @@ import PropTypes from "prop-types";
 
 const Header = ({artistInfo}) => {
 
-    const artistData = artistInfo[0].attributes;
+    const artistData = artistInfo.artist;
 
-    const genres = artistData.genreNames;
-    const displayGenres = genres.join(" ");
-
+    console.log(artistData)
     return (
         <>
-            <h1>{artistData.name}</h1>
+            <h1>{artistData.profile.name}</h1>
             <hr/>
-            <span>Genres: {displayGenres}</span>
+            <p>{artistData.profile.biography.text}</p>
         </>
     );
 
