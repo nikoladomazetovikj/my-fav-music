@@ -1,8 +1,14 @@
-# React + Vite
+# My Fav Music
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In order to setup this repository follow the next steps:
 
-Currently, two official plugins are available:
+1. Clone this repo
+2. Run `npm install`
+3. Go to `https://rapidapi.com/Glavier/api/spotify23` and sign up in order to use the api
+4. Create `.env` file and copy/paste the content from `.env.example` file
+5. Paste the token into 
+```angular2html
+VITE_RAPID_KEY=
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+6. Run the application: `npm run dev`
