@@ -1,9 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Playlist from "./pages/Playlist.jsx";
-import LikedSongs from "./pages/LikedSongs.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import History from "./pages/History.jsx";
 import Profile from "./pages/Profile.jsx";
 
 
@@ -14,9 +11,6 @@ function App() {
             <Routes>
                 <Route index element={<Home/>}/>
                 <Route path='/profile/:id' element={<Profile />}/>
-                <Route path='/playlist' element={<Playlist />}/>
-                <Route path='/history' element={<History/>}/>
-                <Route path='/liked-songs' element={<LikedSongs/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Routes>
        </BrowserRouter>

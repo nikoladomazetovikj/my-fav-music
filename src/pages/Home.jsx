@@ -15,7 +15,7 @@ const Home = () => {
             <Header/>
             <Main>
                 <Search/>
-                {searchResults.length === 0 ? (
+                {searchResults?.albums?.totalCount === 0 ? (
                     <NoResults/>
                 ) : <Results/>}
             </Main>
